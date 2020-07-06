@@ -1,0 +1,6 @@
+export { default as V2Icon } from "./v2icon.svg"
+export { default as DocsIcon } from "./docs.svg"
+export { default as EcosystemIcon } from "./ecosystem.svg"
+export { default as PluginsIcon } from "./plugins.svg"
+export { default as TutorialIcon } from "./tutorial.svg"
+export { default as FeaturedSitesIcon } from "./featured-sites.svg"
