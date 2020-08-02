@@ -4,8 +4,6 @@ import { Link } from "gatsby"
 
 const links = [
   { to: `/accessibility-statement/`, text: `Accessibility Statement` },
-  { to: `/contributing/code-of-conduct/`, text: `Code of Conduct` },
-  { to: `/guidelines/logo/`, text: `Logo & Assets` },
 ]
 
 const FooterLinks = () => (
