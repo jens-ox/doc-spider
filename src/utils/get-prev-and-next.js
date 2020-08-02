@@ -1,13 +1,9 @@
 const { loadYaml } = require(`./load-yaml`)
 const docLinksData = loadYaml(`src/data/sidebars/doc-links.yaml`)
 const tutorialLinksData = loadYaml(`src/data/sidebars/tutorial-links.yaml`)
-const contributingLinksData = loadYaml(
-  `src/data/sidebars/contributing-links.yaml`
-)
 
 const docLinks = docLinksData[0].items
 const tutorialLinks = tutorialLinksData[0].items
-const contributingLinks = contributingLinksData[0].items
 
 // flatten sidebar links trees for easier next/prev link calculation
 function flattenList(itemList) {
@@ -20,7 +16,6 @@ function flattenList(itemList) {
 
 const flattenedDocs = flattenList(docLinks)
 const flattenedTutorials = flattenList(tutorialLinks)
-const flattenedContributing = flattenList(contributingLinks)
 
 // with flattened tree object finding next and prev is just getting the next index
 function getSibling(index, list, direction) {
@@ -57,12 +52,9 @@ function getPrevAndNext(slug) {
   const tutorialIndex = flattenedTutorials.findIndex(findDoc, {
     link: slug,
   })
-  const contributingIndex = flattenedContributing.findIndex(findDoc, {
-    link: slug,
-  })
 
   // add values to page context for next and prev page
-  let prevAndNext = {}
+  const prevAndNext = {}
   if (docIndex > -1) {
     prevAndNext.prev = getSibling(docIndex, flattenedDocs, `prev`)
     prevAndNext.next = getSibling(docIndex, flattenedDocs, `next`)
@@ -70,18 +62,6 @@ function getPrevAndNext(slug) {
   if (tutorialIndex > -1) {
     prevAndNext.prev = getSibling(tutorialIndex, flattenedTutorials, `prev`)
     prevAndNext.next = getSibling(tutorialIndex, flattenedTutorials, `next`)
-  }
-  if (contributingIndex > -1) {
-    prevAndNext.prev = getSibling(
-      contributingIndex,
-      flattenedContributing,
-      `prev`
-    )
-    prevAndNext.next = getSibling(
-      contributingIndex,
-      flattenedContributing,
-      `next`
-    )
   }
   return prevAndNext
 }
