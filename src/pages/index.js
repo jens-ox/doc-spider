@@ -6,7 +6,6 @@ import { MdArrowForward as ArrowForwardIcon } from "react-icons/md"
 
 import Container from "../components/container"
 import MastheadContent from "../components/masthead"
-import Diagram from "../components/diagram"
 import FuturaParagraph from "../components/futura-paragraph"
 import Button from "../components/button"
 import PageMetadata from "../components/page-metadata"
@@ -39,15 +38,6 @@ class IndexRoute extends React.Component {
           }}
         >
           <MastheadContent />
-          <div
-            sx={{
-              width: `100%`,
-              p: 8,
-              pt: 0,
-            }}
-          >
-            <Diagram />
-          </div>
           <div css={{ flex: `1 1 100%` }}>
             <Container withSidebar={false}>
               <section css={{ textAlign: `center` }}>

@@ -14,7 +14,6 @@ import { navigate as reachNavigate } from "@reach/router"
 import { Link } from "gatsby"
 import { MdArrowDownward as ArrowDownwardIcon } from "react-icons/md"
 import isOfficialPackage from "../utils/is-official-package"
-import AlgoliaLogo from "../assets/vendor-logos/algolia.svg"
 import GatsbyIcon from "./gatsby-monogram"
 import { debounce, unescape } from "lodash-es"
 
@@ -286,7 +285,6 @@ function Search({ pathname, query }) {
           href={`https://www.algolia.com/`}
           sx={{
             "&&": {
-              background: `url(${AlgoliaLogo})`,
               border: `none`,
               fontWeight: `body`,
               backgroundRepeat: `no-repeat`,
