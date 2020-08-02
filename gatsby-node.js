@@ -64,33 +64,6 @@ exports.createSchemaCustomization = async helpers => {
 
 exports.createResolvers = async helpers => {
   await runApiForSections(`createResolvers`, helpers)
-
-  const { createResolvers } = helpers
-  // Patch `DocumentationJs` type to handle custom `@availableIn` jsdoc tag
-  createResolvers({
-    DocumentationJs: {
-      availableIn: {
-        type: `[String]`,
-        resolve(source) {
-          const { tags } = source
-          if (!tags || !tags.length) {
-            return []
-          }
-
-          const availableIn = tags.find(tag => tag.title === `availableIn`)
-          if (availableIn) {
-            return availableIn.description
-              .split(`\n`)[0]
-              .replace(/[[\]]/g, ``)
-              .split(`,`)
-              .map(api => api.trim())
-          }
-
-          return []
-        },
-      },
-    },
-  })
 }
 
 exports.onCreateNode = async helpers => {

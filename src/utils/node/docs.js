@@ -174,7 +174,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const docsTemplate = getTemplate(`template-docs-markdown`)
-  const apiTemplate = getTemplate(`template-api-markdown`)
 
   const { data, errors } = await graphql(/* GraphQL */ `
     query {
@@ -195,28 +194,13 @@ exports.createPages = async ({ graphql, actions }) => {
     if (!node.slug) return
 
     const prevAndNext = getPrevAndNext(node.slug)
-    if (node.jsdoc) {
-      // API template
-      createPage({
-        path: `${node.slug}`,
-        component: apiTemplate,
-        context: {
-          slug: node.slug,
-          jsdoc: node.jsdoc,
-          apiCalls: node.apiCalls,
-          ...prevAndNext,
-        },
-      })
-    } else {
-      // Docs template
-      createPage({
-        path: `${node.slug}`,
-        component: docsTemplate,
-        context: {
-          slug: node.slug,
-          ...prevAndNext,
-        },
-      })
-    }
+    createPage({
+      path: `${node.slug}`,
+      component: docsTemplate,
+      context: {
+        slug: node.slug,
+        ...prevAndNext,
+      },
+    })
   })
 }
