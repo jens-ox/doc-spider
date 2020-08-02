@@ -1,8 +1,6 @@
 const fs = require("fs")
 const unified = require("unified")
 
-const dictionary = fs.readFileSync("./dictionary.txt")
-
 module.exports = {
   plugins: [
     ["remark-frontmatter", "yaml"],
@@ -13,10 +11,6 @@ module.exports = {
         .use(require("retext-syntax-urls"))
         .use(require("retext-syntax-mentions"))
         .use(require("retext-emoji"))
-        .use(require("retext-spell"), {
-          dictionary: require("dictionary-en"),
-          personal: dictionary,
-        })
         .use(require("retext-diacritics"))
         .use(require("retext-indefinite-article"))
         .use(require("retext-redundant-acronyms"))

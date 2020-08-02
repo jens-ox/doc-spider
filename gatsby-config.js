@@ -35,7 +35,6 @@ module.exports = {
         pathToConfigModule: `${__dirname}/src/utils/typography`,
       },
     },
-    `gatsby-transformer-documentationjs`,
     `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-source-filesystem`,

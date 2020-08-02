@@ -1,8 +1,5 @@
 const Promise = require(`bluebird`)
 
-const { loadYaml } = require(`./src/utils/load-yaml`)
-const redirects = loadYaml(`./redirects.yaml`)
-
 // Split the logic into files based on the section of the website.
 // The eventual goal is to split www into different themes per section.
 const docs = require(`./src/utils/node/docs.js`)
@@ -102,11 +99,4 @@ exports.onCreateNode = async helpers => {
 
 exports.createPages = async helpers => {
   await runApiForSections(`createPages`, helpers)
-
-  const { actions } = helpers
-  const { createRedirect } = actions
-
-  redirects.forEach(redirect => {
-    createRedirect({ isPermanent: true, ...redirect, force: true })
-  })
 }
