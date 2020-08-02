@@ -13,26 +13,7 @@
       items:
         - title: Pages and Layouts
           link: /docs/recipes/pages-layouts/
-        - title: Styling with CSS
-          link: /docs/recipes/styling-css/
-        - title: Working with Plugins
-          link: /docs/recipes/working-with-plugins/
-        - title: Working with Starters
-          link: /docs/recipes/working-with-starters/
-        - title: Working with Themes
-          link: /docs/recipes/working-with-themes/
-        - title: Sourcing Data
-          link: /docs/recipes/sourcing-data/
-        - title: Querying Data
-          link: /docs/recipes/querying-data/
-        - title: Working with Images
-          link: /docs/recipes/working-with-images/
-        - title: Transforming Data
-          link: /docs/recipes/transforming-data/
-        - title: Deploying Your Site
-          link: /docs/recipes/deploying-your-site/
     - title: Gatsby API
-      link: /docs/api-reference/
       items:
         - title: Gatsby Themes
           link: /docs/theme-api/

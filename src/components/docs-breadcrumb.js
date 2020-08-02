@@ -75,7 +75,11 @@ const Breadcrumb = ({ location }) => {
           return (
             <React.Fragment key={itemTitle}>
               <span>
-                <Link to={item.link}>{itemTitle}</Link>
+                {item.link ? (
+                  <Link to={item.link}>{itemTitle}</Link>
+                ) : (
+                  itemTitle
+                )}
               </span>
               <Separator />
             </React.Fragment>
