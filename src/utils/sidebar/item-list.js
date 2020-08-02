@@ -1,6 +1,4 @@
 import docsSidebar from "../../data/sidebars/doc-links.yaml"
-import contributingSidebar from "../../data/sidebars/contributing-links.yaml"
-import featuresSidebar from "../../data/sidebars/features-links.yaml"
 import tutorialSidebar from "../../data/sidebars/tutorial-links.yaml"
 
 const createHash = link => {
@@ -40,14 +38,10 @@ const extendSidebarData = item => {
 
 const itemListDocs = extendSidebarData(docsSidebar)
 const itemListTutorial = extendSidebarData(tutorialSidebar)
-const itemListContributing = extendSidebarData(contributingSidebar)
-const itemListFeatures = extendSidebarData(featuresSidebar)
 
 const itemListLookup = {
   docs: itemListDocs,
-  contributing: itemListContributing,
   tutorial: itemListTutorial,
-  features: itemListFeatures,
 }
 
 function getItemList(path) {
@@ -55,10 +49,4 @@ function getItemList(path) {
   return itemListLookup[urlSegment]
 }
 
-export {
-  itemListDocs,
-  itemListTutorial,
-  itemListContributing,
-  itemListFeatures,
-  getItemList,
-}
+export { itemListDocs, itemListTutorial, getItemList }
