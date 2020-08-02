@@ -93,19 +93,23 @@ const Breadcrumb = ({ location }) => {
       {activeItemParents && (
         <BreadcrumbNav mobile>
           <Separator character={<ChevronLeft />} />
-          <Link
-            to={
-              activeItemParents[activeItemParents.length - 1]
-                ? activeItemParents[activeItemParents.length - 1].link
-                : `/${topLevel}/`
-            }
-          >
-            {activeItemParents[activeItemParents.length - 1]
-              ? activeItemParents[activeItemParents.length - 1]
+          {activeItemParents[activeItemParents.length - 1] ? (
+            activeItemParents[activeItemParents.length - 1].link ? (
+              <Link to={activeItemParents[activeItemParents.length - 1].link}>
+                {activeItemParents[activeItemParents.length - 1]
                   .breadcrumbTitle ||
-                activeItemParents[activeItemParents.length - 1].title
-              : topLevelTitle}
-          </Link>
+                  activeItemParents[activeItemParents.length - 1].title}
+              </Link>
+            ) : (
+              <span>
+                {activeItemParents[activeItemParents.length - 1]
+                  .breadcrumbTitle ||
+                  activeItemParents[activeItemParents.length - 1].title}
+              </span>
+            )
+          ) : (
+            <Link to={`/${topLevel}/`}>{topLevelTitle}</Link>
+          )}
         </BreadcrumbNav>
       )}
     </React.Fragment>
