@@ -30,12 +30,11 @@ export default function StickyResponsiveSidebar(props) {
           width: `sidebarWidth.mobile`,
           zIndex: `sidebar`,
           [mediaQueries.md]: {
-            height: t =>
-              `calc(100vh - ${t.sizes.headerHeight} - ${t.sizes.bannerHeight})`,
+            height: t => `calc(100vh - ${t.sizes.headerHeight})`,
             maxWidth: `none`,
             opacity: `1 !important`,
             pointerEvents: `auto`,
-            top: t => `calc(${t.sizes.headerHeight} + ${t.sizes.bannerHeight})`,
+            top: t => t.sizes.headerHeight,
             width: `sidebarWidth.default`,
           },
           [mediaQueries.lg]: {

@@ -22,7 +22,7 @@ const algoliaStyles = t => css`
   .algolia-autocomplete .ds-dropdown-menu {
     font-family: ${t.fonts.system};
     position: fixed !important;
-    top: calc(${searchDropdownOffsetTop} + ${t.sizes.bannerHeight}) !important;
+    top: ${searchDropdownOffsetTop} !important;
     left: ${t.space[3]} !important;
     right: ${t.space[3]} !important;
     min-width: calc(100vw - ${t.space[5]}) !important;
@@ -87,9 +87,7 @@ const algoliaStyles = t => css`
   }
 
   .algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"] {
-    max-height: calc(
-      100vh - ${t.sizes.headerHeight} - ${t.sizes.bannerHeight}
-    ) !important;
+    max-height: calc(100vh - ${t.sizes.headerHeight}) !important;
     padding: 0 !important;
     border-color: ${t.colors.ui.border} !important;
   }

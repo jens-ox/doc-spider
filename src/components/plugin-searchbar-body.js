@@ -260,7 +260,7 @@ function Search({ pathname, query }) {
           sx={{
             [mediaQueries.md]: {
               height: t =>
-                `calc(100vh - ${t.sizes.headerHeight} - ${t.sizes.bannerHeight} - ${searchInputHeight} - ${searchInputWrapperMargin} - ${searchMetaHeight})`,
+                `calc(100vh - ${t.sizes.headerHeight} - ${searchInputHeight} - ${searchInputWrapperMargin} - ${searchMetaHeight})`,
               overflowY: `scroll`,
             },
           }}

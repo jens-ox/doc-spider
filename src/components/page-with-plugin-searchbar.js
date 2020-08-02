@@ -13,8 +13,7 @@ const PageWithPluginSearchBar = ({ isPluginsIndex, location, children }) => (
         // mobile: hide PluginSearchBar when on gatsbyjs.org/packages/foo, aka package README page
         display: !isPluginsIndex ? `none` : false,
         height: t => `calc(100vh - ${t.sizes.headerHeight})`,
-        top: t =>
-          `calc(${t.sizes.headerHeight} + ${t.sizes.bannerHeight} - 1px)`,
+        top: t => `calc(${t.sizes.headerHeight} - 1px)`,
         width: `100%`,
         zIndex: 1,
         [mediaQueries.md]: {

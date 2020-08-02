@@ -7,9 +7,8 @@ import { mediaQueries } from "gatsby-design-tokens/dist/theme-gatsbyjs-org"
 const sticky = t => {
   return {
     position: `sticky`,
-    top: `calc(${t.sizes.bannerHeight})`,
     [mediaQueries.lg]: {
-      top: `calc(${t.sizes.headerHeight} + ${t.sizes.bannerHeight})`,
+      top: t.sizes.headerHeight,
     },
   }
 }
@@ -25,8 +24,7 @@ export const SidebarContainer = ({ children, className }) => (
         borderRightWidth: `1px`,
         display: `block`,
         flexBasis: t => t.sizes.showcaseSidebarMaxWidth,
-        height: t =>
-          `calc(100vh - (${t.sizes.headerHeight} + ${t.sizes.bannerHeight}))`,
+        height: t => `calc(100vh - (${t.sizes.headerHeight}))`,
         minWidth: `showcaseSidebarMaxWidth`,
         pt: 0,
       },
@@ -42,8 +40,7 @@ export const SidebarBody = ({ children }) => (
     sx={{
       display: `flex`,
       flexDirection: `column`,
-      height: t =>
-        `calc(100vh - ((${t.sizes.headerHeight}) + ${t.sizes.bannerHeight}))`,
+      height: t => `calc(100vh - ((${t.sizes.headerHeight})))`,
       paddingLeft: 6,
     }}
   >

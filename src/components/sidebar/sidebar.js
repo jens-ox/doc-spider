@@ -162,8 +162,7 @@ export default function Sidebar({
                 ? `100%`
                 : `calc(100% - ${t.sizes.sidebarUtilityHeight})`,
             [mediaQueries.md]: {
-              top: t =>
-                `calc(${t.sizes.headerHeight} + ${t.sizes.bannerHeight})`,
+              top: t => t.sizes.headerHeight,
             },
           }}
         >

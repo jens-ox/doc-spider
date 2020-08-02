@@ -6,7 +6,6 @@ import { Global } from "@emotion/core"
 
 import { globalStyles } from "../utils/styles/global"
 import { breakpointGutter } from "../utils/styles"
-import Banner from "./banner"
 import Navigation from "./navigation"
 import MobileNavigation from "./navigation-mobile"
 import SiteMetadata from "./site-metadata"
@@ -28,17 +27,15 @@ export default function DefaultLayout({ location, children }) {
       <Global styles={globalStyles} />
       <SiteMetadata pathname={location.pathname} />
       <SkipNavLink />
-      <Banner />
       <Navigation pathname={location.pathname} />
       <div
         className={`main-body docSearch-content`}
         sx={{
           px: `env(safe-area-inset-left)`,
-          pt: t => t.sizes.bannerHeight,
           // make room for the mobile navigation
           pb: t => t.sizes.headerHeight,
           [breakpointGutter]: {
-            pt: t => `calc(${t.sizes.bannerHeight} + ${t.sizes.headerHeight})`,
+            pt: t => t.sizes.headerHeight,
             pb: 0,
           },
         }}

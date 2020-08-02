@@ -12,8 +12,7 @@ const PageHeadingContainer = styled(`header`)`
     left: 0;
     position: fixed;
     padding: 0;
-    top: ${`calc(${p => p.theme.sizes.bannerHeight} + ${props =>
-      props.theme.sizes.headerHeight})`};
+    top: ${`calc(${props => props.theme.sizes.headerHeight})`};
   }
 `
 
